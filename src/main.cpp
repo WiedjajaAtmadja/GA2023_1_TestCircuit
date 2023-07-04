@@ -1,5 +1,8 @@
 #include <Arduino.h>
+#include <DHTesp.h>
 #include "devices.h"
+
+DHTesp dht;
 
 void setup() {
   Serial.begin(115200);
@@ -7,7 +10,7 @@ void setup() {
   pinMode(LED_RED, OUTPUT);
   pinMode(LED_GREEN, OUTPUT);
   pinMode(LED_YELLOW, OUTPUT);
-
+  dht.setup(DHT_PIN, DHTesp::DHT11);
 }
 
 void loop() {
@@ -21,6 +24,11 @@ void loop() {
   digitalWrite(LED_RED, LOW);
   digitalWrite(LED_GREEN, LOW);
   digitalWrite(LED_YELLOW, LOW);
-  delay(1000);
+  delay(3000);
+
+  float fHumidity = dht.getHumidity();
+  float fTemperature = dht.getTemperature();
+  Serial.printf("Humidity: %.2f, Temperature: %.2f\n",
+       fHumidity, fTemperature);
 }
 

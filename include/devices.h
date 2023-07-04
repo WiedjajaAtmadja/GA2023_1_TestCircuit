@@ -2,3 +2,4 @@
 #define LED_YELLOW 2
 #define LED_GREEN 4
 #define DHT_PIN 5
+#define PUSH_BUTTON 23

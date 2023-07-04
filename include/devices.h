@@ -3,3 +3,5 @@
 #define LED_GREEN 4
 #define DHT_PIN 5
 #define PUSH_BUTTON 23
+#define SDA_PIN 21
+#define SCL_PIN 22
